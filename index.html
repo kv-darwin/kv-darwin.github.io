@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Darwin Balaji K — Salesforce Developer | CPQ · Revenue Cloud · Apex</title>
+<meta name="description" content="Salesforce Developer specializing in CPQ, Revenue Cloud, Billing, and Apex. 3+ years building enterprise quote-to-cash solutions for HealthTech, Telecom, and Insurance clients." />
+<meta name="keywords" content="Salesforce Developer, CPQ Specialist, Revenue Cloud, Apex, QCP, Billing, Salesforce Portfolio" />
+<meta name="author" content="Darwin Balaji K" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Darwin Balaji K — Salesforce Developer" />
+<meta property="og:description" content="CPQ · Revenue Cloud · Apex · QCP. Senior-level Salesforce engineering for quote-to-cash." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0e1116;
+    --bg-soft: #161a22;
+    --bg-card: #1a1f29;
+    --ink: #e8e6e1;
+    --ink-soft: #a8a59e;
+    --ink-muted: #6b6862;
+    --accent: #d4a574;
+    --accent-bright: #e6b87a;
+    --accent-dim: #8a6a4a;
+    --line: rgba(232, 230, 225, 0.08);
+    --line-strong: rgba(232, 230, 225, 0.16);
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    background: rgba(14, 17, 22, 0.75);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--line); }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.25s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    padding: 8rem 4rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.1s forwards;
+  }
+  .hero-meta::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 9vw, 8rem);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+  }
+  .hero h1 .line {
+    display: block;
+    overflow: hidden;
+  }
+  .hero h1 .line span {
+    display: inline-block;
+    transform: translateY(110%);
+    animation: slideUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+  .hero h1 .line:nth-child(1) span { animation-delay: 0.2s; }
+  .hero h1 .line:nth-child(2) span { animation-delay: 0.35s; }
+  .hero h1 .line:nth-child(3) span { animation-delay: 0.5s; }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.1s forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.8rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--ink);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .btn:hover {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .btn-primary:hover {
+    background: var(--accent-bright);
+    border-color: var(--accent-bright);
+    color: var(--bg);
+  }
+  .btn svg { width: 14px; height: 14px; }
+
+  /* ===== SECTION SHARED ===== */
+  section {
+    padding: 8rem 4rem;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-label::before {
+    content: counter(section, decimal-leading-zero);
+    font-family: var(--mono);
+    color: var(--ink-muted);
+  }
+
+  body { counter-reset: section; }
+  section { counter-increment: section; }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 4rem;
+    max-width: 900px;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ===== ABOUT ===== */
+  .about {
+    border-top: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-portrait {
+    position: sticky;
+    top: 8rem;
+  }
+
+  .portrait-card {
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--bg-card), var(--bg));
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .portrait-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(212, 165, 116, 0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .portrait-initials {
+    font-family: var(--serif);
+    font-size: 8rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+  }
+  .portrait-initials em { font-style: italic; }
+  .portrait-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .about-content p {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .about-content p:last-child { margin-bottom: 0; }
+  .about-content p strong {
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--line);
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .stat-num em { font-style: italic; }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  /* ===== EXPERTISE ===== */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .expertise-card {
+    padding: 3rem 2.5rem;
+    background: var(--bg);
+    transition: background 0.4s ease;
+    position: relative;
+  }
+  .expertise-card:hover {
+    background: var(--bg-soft);
+  }
+  .expertise-card:hover .expertise-num {
+    color: var(--accent);
+  }
+
+  .expertise-num {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .expertise-card h3 {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .expertise-card h3 em { font-style: italic; color: var(--accent); }
+
+  .expertise-card p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+
+  .expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    background: rgba(212, 165, 116, 0.08);
+    border: 1px solid rgba(212, 165, 116, 0.2);
+    color: var(--accent);
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== EXPERIENCE ===== */
+  .experience {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 1100px;
+  }
+
+  .job {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding-left 0.4s ease;
+  }
+  .job:hover { padding-left: 1rem; }
+  .job:last-child { border-bottom: none; }
+
+  .job-period {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    padding-top: 0.5rem;
+  }
+  .job-period .role-tag {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba(212, 165, 116, 0.1);
+    color: var(--accent);
+    border-radius: 2px;
+    font-size: 0.7rem;
+  }
+
+  .job-content h3 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
+  }
+  .job-company {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+  }
+  .job-content p {
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .job-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+
+  /* ===== CERTIFICATIONS ===== */
+  .certs-wrap {
+    border-top: 1px solid var(--line);
+  }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert {
+    padding: 1.5rem;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+  .cert:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-2px);
+  }
+  .cert-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .cert-name {
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .cert-issuer {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
+  }
+
+  /* ===== PROJECTS ===== */
+  .projects {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project {
+    padding: 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .project::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+  }
+  .project:hover { border-color: var(--line-strong); }
+  .project:hover::before { transform: scaleY(1); }
+
+  .project-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 0.8;
+    margin-bottom: 1rem;
+  }
+  .project-domain {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .project h3 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+  .project h3 em { font-style: italic; color: var(--accent); }
+
+  .project-desc {
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .project-highlights {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  .project-highlights li {
+    padding: 0.5rem 0;
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .project-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--mono);
+  }
+
+  /* ===== EDUCATION & PUBLICATIONS ===== */
+  .edu-pub-wrap {
+    border-top: 1px solid var(--line);
+  }
+  .edu-pub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .edu-block h3, .pub-block h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .edu-card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu-card:last-child { border-bottom: none; }
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .edu-school {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .edu-detail {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .pub-card {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .pub-card:last-child { border-bottom: none; }
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+  .pub-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    text-align: center;
+    padding: 10rem 4rem 6rem;
+  }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
+  }
+  .contact h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-email {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 0.3rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 3rem;
+  }
+  .contact-email:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .contact-link {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: color 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .contact-link:hover { color: var(--accent); }
+
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes slideUp {
+    to { transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 968px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-portrait { position: static; max-width: 280px; }
+    .about-content p { font-size: 1.2rem; }
+    .stats { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .job { grid-template-columns: 1fr; gap: 1rem; }
+    .project { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+    .edu-pub-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact { padding: 6rem 1.5rem 4rem; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="logo">Darwin<span>.</span><em>K</em></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-meta">Salesforce Developer · Madurai, India · Available for hire</div>
+  <h1>
+    <span class="line"><span>Building <em>quote-to-cash</em></span></span>
+    <span class="line"><span>solutions on the</span></span>
+    <span class="line"><span>Salesforce platform.</span></span>
+  </h1>
+  <p class="hero-tagline">
+    Salesforce Developer with 3+ years of experience architecting CPQ, Revenue Cloud,
+    and Billing solutions for HealthTech, Telecom, and Insurance enterprises.
+    Specialized in Apex, QCP, and complex amendment-renewal lifecycles.
+  </p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn btn-primary">
+      Get in touch
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#projects" class="btn">View work</a>
+  </div>
+</header>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="about">
+  <div class="section-label">About</div>
+  <h2 class="section-title">A developer who treats <em>Salesforce</em> as a craft.</h2>
+
+  <div class="about-grid">
+    <div class="about-portrait">
+      <div class="portrait-card reveal">
+        <div class="portrait-initials">D<em>K</em></div>
+        <div class="portrait-meta">
+          <span>Darwin Balaji K</span>
+          <span>B.E. ECE · 8.12 CGPA</span>
+          <span>KPR Institute, 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content reveal">
+      <p>
+        I write Apex, design QCP logic, and ship CPQ and Revenue Cloud solutions
+        that hold up in production — through high-volume amendments, segment-aware
+        promotions, and the kind of cross-object validation that <strong>declarative tools simply
+        can't handle</strong>.
+      </p>
+      <p>
+        At my current engagement with a Veeva client, I extend a <strong>2,600+ line QCP codebase</strong>
+        covering billing-date orchestration, amendment lifecycles, and renewal logic.
+        Previously I worked across AARP and 8x8 Telecom on quote-to-cash transformations.
+      </p>
+      <p>
+        Outside of Salesforce, I run <strong>Morivo Organics</strong> — a moringa export
+        venture in Karur, Tamil Nadu — which keeps me close to the operational
+        realities of the businesses my code is meant to serve.
+      </p>
+
+      <div class="stats">
+        <div>
+          <div class="stat-num">3<em>+</em></div>
+          <div class="stat-label">Years of Salesforce engineering</div>
+        </div>
+        <div>
+          <div class="stat-num">7</div>
+          <div class="stat-label">Industry-recognised certifications</div>
+        </div>
+        <div>
+          <div class="stat-num">2.6<em>K</em></div>
+          <div class="stat-label">Lines of QCP shipped to production</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERTISE ===== -->
+<section id="expertise">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">Where I do my <em>best work.</em></h2>
+
+  <div class="expertise-grid reveal">
+
+    <div class="expertise-card">
+      <div class="expertise-num">/ 01</div>
+      <h3>Salesforce <em>CPQ</em></h3>
+      <p>
+        Product configuration, pricing rules, advanced QCP scripting,
+        bundle option logic, and amendment/renewal workflows for subscription businesses.
+      </p>
+      <div class="expertise-tags">
+        <span class="tag">QCP</span>
+        <span class="tag">Price Rules</span>
+        <span class="tag">Product Rules</span>
+        <span class="tag">Amendments</span>
+        <span class="tag">Renewals</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-num">/ 02</div>
+      <h3>Revenue Cloud <em>Advanced</em></h3>
+      <p>
+        Pricing Procedures, Discovery Procedures, Attribute Rules, Rate Cards,
+        and Price Adjustment Matrices on the next-generation revenue platform.
+      </p>
+      <div class="expertise-tags">
+        <span class="tag">RCA</span>
+        <span class="tag">Pricing Procedures</span>
+        <span class="tag">Rate Cards</span>
+        <span class="tag">Attribute Rules</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-num">/ 03</div>
+      <h3>Apex <em>& Integration</em></h3>
+      <p>
+        Bulkified triggers, Queueable and Batch Apex, Platform Events, REST/SOAP APIs,
+        Composite API, and trigger framework patterns that prevent recursion at scale.
+      </p>
+      <div class="expertise-tags">
+        <span class="tag">Apex</span>
+        <span class="tag">LWC</span>
+        <span class="tag">Platform Events</span>
+        <span class="tag">REST API</span>
+        <span class="tag">SOQL</span>
+      </div>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-num">/ 04</div>
+      <h3>Billing <em>& CLM</em></h3>
+      <p>
+        Salesforce Billing for invoicing, taxation, and revenue recognition.
+        DocuSign CLM integration, Vlocity DocuSign templates, and bypass patterns
+        for managed package limitations.
+      </p>
+      <div class="expertise-tags">
+        <span class="tag">Salesforce Billing</span>
+        <span class="tag">DocuSign CLM</span>
+        <span class="tag">Vlocity</span>
+        <span class="tag">Invoicing</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Three years across <em>HealthTech, Insurance & Telecom.</em></h2>
+
+  <div class="timeline">
+
+    <div class="job reveal">
+      <div class="job-period">
+        Jul 2025 — Present
+        <br><span class="role-tag">Current</span>
+      </div>
+      <div class="job-content">
+        <h3>Salesforce Developer — CPQ &amp; Revenue Cloud</h3>
+        <div class="job-company">DeepDive IT Solutions · HealthTech engagement (Veeva)</div>
+        <p>
+          Architecting and extending a 2,600+ line QCP codebase covering cross-object
+          validation, billing-date orchestration, segment-aware promotions, and
+          amendment/renewal logic for a global HealthTech client.
+        </p>
+        <p>
+          Exploring Salesforce Revenue Cloud Advanced (RCA) — Pricing Procedures,
+          Attribute Rules, Rate Cards — to position the client for migration off classic CPQ.
+        </p>
+        <div class="job-tech">
+          <span class="tag">CPQ</span>
+          <span class="tag">QCP</span>
+          <span class="tag">Apex</span>
+          <span class="tag">RCA</span>
+          <span class="tag">DocuSign CLM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-period">Jan 2025 — Jun 2025</div>
+      <div class="job-content">
+        <h3>Salesforce Developer</h3>
+        <div class="job-company">Kriswin Infotech · Insurance &amp; Membership engagement</div>
+        <p>
+          Delivered Apex, LWC, and CPQ enhancements on a large-scale insurance and
+          membership platform serving millions of members. Worked on quote-to-cash
+          flows and member-facing self-service experiences.
+        </p>
+        <div class="job-tech">
+          <span class="tag">Apex</span>
+          <span class="tag">LWC</span>
+          <span class="tag">CPQ</span>
+          <span class="tag">Salesforce Billing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-period">May 2024 — Nov 2024</div>
+      <div class="job-content">
+        <h3>Salesforce Developer</h3>
+        <div class="job-company">DeepDive IT Solutions · Telecom engagement</div>
+        <p>
+          Built CPQ configurations, Apex automation, and integration layers for a
+          cloud communications enterprise. Focused on quote validation, pricing logic,
+          and high-volume order processing patterns.
+        </p>
+        <div class="job-tech">
+          <span class="tag">CPQ</span>
+          <span class="tag">Apex Triggers</span>
+          <span class="tag">Batch Apex</span>
+          <span class="tag">Integrations</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications" class="certs-wrap">
+  <div class="section-label">Certifications</div>
+  <h2 class="section-title">Credentialed across the <em>Salesforce stack.</em></h2>
+
+  <div class="certs-grid reveal">
+    <div class="cert">
+      <div class="cert-icon">CPQ</div>
+      <div>
+        <div class="cert-name">CPQ Specialist</div>
+        <div class="cert-issuer">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">PD1</div>
+      <div>
+        <div class="cert-name">Platform Developer I</div>
+        <div class="cert-issuer">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">AI</div>
+      <div>
+        <div class="cert-name">AI Specialist</div>
+        <div class="cert-issuer">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">AI</div>
+      <div>
+        <div class="cert-name">AI Associate</div>
+        <div class="cert-issuer">Salesforce</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">B</div>
+      <div>
+        <div class="cert-name">Billing Superbadge</div>
+        <div class="cert-issuer">Salesforce Trailhead</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">B+</div>
+      <div>
+        <div class="cert-name">Advanced Billing Superbadge</div>
+        <div class="cert-issuer">Salesforce Trailhead</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">PB</div>
+      <div>
+        <div class="cert-name">Power BI</div>
+        <div class="cert-issuer">Microsoft</div>
+      </div>
+    </div>
+    <div class="cert">
+      <div class="cert-icon">T</div>
+      <div>
+        <div class="cert-name">Tableau</div>
+        <div class="cert-issuer">Tableau</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="projects">
+  <div class="section-label">Selected Work</div>
+  <h2 class="section-title">Solutions shipped to <em>production.</em></h2>
+
+  <div class="project-list">
+
+    <div class="project reveal">
+      <div>
+        <div class="project-num">01</div>
+        <div class="project-domain">HealthTech · Veeva</div>
+      </div>
+      <div>
+        <h3>Enterprise QCP for <em>amendment-renewal lifecycle</em></h3>
+        <p class="project-desc">
+          Architected a 2,600+ line Quote Calculator Plugin extending Salesforce CPQ
+          with logic that declarative configuration alone could not satisfy.
+        </p>
+        <ul class="project-highlights">
+          <li>Cross-object validation against active subscriptions and historical orders</li>
+          <li>Billing-date orchestration aligned to segment-specific calendars</li>
+          <li>Promotion engine with segment-aware eligibility and stacking rules</li>
+          <li>Amendment and renewal logic preserving prior-term pricing where contractual</li>
+        </ul>
+        <div class="job-tech">
+          <span class="tag">QCP</span>
+          <span class="tag">CPQ</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Apex</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div>
+        <div class="project-num">02</div>
+        <div class="project-domain">Insurance &amp; Membership</div>
+      </div>
+      <div>
+        <h3>Quote-to-cash for <em>membership renewals</em></h3>
+        <p class="project-desc">
+          Delivered Apex, LWC, and CPQ enhancements on a large-scale insurance and
+          membership platform serving millions of members across multiple product lines.
+        </p>
+        <ul class="project-highlights">
+          <li>Member self-service quote and renewal flows on Lightning Web Components</li>
+          <li>Bulkified Apex triggers and batch jobs for membership lifecycle events</li>
+          <li>Salesforce Billing configuration for invoicing and revenue recognition</li>
+        </ul>
+        <div class="job-tech">
+          <span class="tag">CPQ</span>
+          <span class="tag">LWC</span>
+          <span class="tag">Salesforce Billing</span>
+          <span class="tag">Apex</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div>
+        <div class="project-num">03</div>
+        <div class="project-domain">Cloud Communications · Telecom</div>
+      </div>
+      <div>
+        <h3>CPQ &amp; integration for <em>high-volume order flow</em></h3>
+        <p class="project-desc">
+          Built CPQ configurations and Apex automation for a cloud communications
+          enterprise managing high-volume telecom subscriptions.
+        </p>
+        <ul class="project-highlights">
+          <li>Quote validation logic enforcing eligibility, dependencies, and bundle constraints</li>
+          <li>Pricing rules tuned for tiered telecom plans and contract durations</li>
+          <li>Batch Apex and Queueable patterns for nightly reconciliation jobs</li>
+        </ul>
+        <div class="job-tech">
+          <span class="tag">CPQ</span>
+          <span class="tag">Apex Triggers</span>
+          <span class="tag">Batch Apex</span>
+          <span class="tag">REST API</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== EDUCATION & PUBLICATIONS ===== -->
+<section class="edu-pub-wrap">
+  <div class="section-label">Education &amp; Research</div>
+  <h2 class="section-title">Foundations <em>& published work.</em></h2>
+
+  <div class="edu-pub-grid reveal">
+
+    <div class="edu-block">
+      <h3>Education</h3>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Engineering, Electronics &amp; Communication</div>
+        <div class="edu-school">KPR Institute of Engineering &amp; Technology</div>
+        <div class="edu-detail">2020 — 2024 · CGPA 8.12</div>
+      </div>
+    </div>
+
+    <div class="pub-block">
+      <h3>IEEE Publications</h3>
+      <div class="pub-card">
+        <div class="pub-title">E-Voting System Using Blockchain Technology</div>
+        <div class="pub-meta">IEEE · 2024</div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-title">Universal Robots for Drug Delivery Systems</div>
+        <div class="pub-meta">IEEE · 2023</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact">
+  <div class="contact-label">— Let's talk</div>
+  <h2>Have a Salesforce<br>challenge worth <em>solving?</em></h2>
+  <a href="mailto:darwinloyality@gmail.com" class="contact-email">darwinloyality@gmail.com</a>
+
+  <div class="contact-links">
+    <a href="mailto:darwinloyality@gmail.com" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </a>
+    <a href="tel:+919566741751" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +91 95667 41751
+    </a>
+    <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://trailblazer.me" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Trailblazer
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Darwin Balaji K · Madurai, India</div>
+  <div>Crafted with care · Built for impact</div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  reveals.forEach((el) => observer.observe(el));
+
+  // Smooth anchor scrolling with offset
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 60;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
