@@ -278,14 +278,12 @@
   .about-portrait { position: sticky; top: 8rem; }
 
   .portrait-card {
-    aspect-ratio: 3/4;
     background: linear-gradient(135deg, var(--bg-card), var(--bg));
     border: 1px solid var(--line);
     border-radius: 4px;
-    padding: 2rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     overflow: hidden;
   }
@@ -297,30 +295,26 @@
     height: 100%;
     background: radial-gradient(circle at top right, rgba(212, 165, 116, 0.12), transparent 60%);
     pointer-events: none;
+    z-index: 1;
   }
   .portrait-image {
-    flex: 1;
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
+    width: 100%;
+    aspect-ratio: 4/5;
     position: relative;
     overflow: hidden;
-    border-radius: 3px;
-    margin-bottom: 1.5rem;
-    min-height: 400px;
-    background: linear-gradient(180deg, var(--bg-card), #2a3142);
+    background: linear-gradient(180deg, #1a2332, #0e1116);
   }
   .portrait-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
-    filter: grayscale(10%) contrast(1.05) brightness(1.02);
+    object-position: center 20%;
+    filter: contrast(1.05) brightness(1.05) saturate(0.95);
     transition: filter 0.4s ease;
     display: block;
   }
   .portrait-card:hover .portrait-image img {
-    filter: grayscale(0%) contrast(1) brightness(1);
+    filter: contrast(1.1) brightness(1.1) saturate(1);
   }
   .portrait-fallback {
     display: none;
@@ -336,26 +330,18 @@
     color: var(--accent);
   }
   .portrait-fallback em { font-style: italic; }
-  .portrait-initials {
-    font-family: var(--serif);
-    font-size: 8rem;
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.05em;
-    color: var(--accent);
-  }
-  .portrait-initials em { font-style: italic; }
   .portrait-meta {
     font-family: var(--mono);
     font-size: 0.75rem;
     color: var(--ink-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    border-top: 1px solid var(--line);
-    padding-top: 1.5rem;
+    padding: 1.5rem 2rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    position: relative;
+    z-index: 2;
   }
 
   .about-content p {
@@ -568,28 +554,28 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   }
   .cert-badge {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 2px;
+    background: #0e1116;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 4px;
   }
   .cert-badge img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
-    /* Subtle glow to blend Salesforce badges' edges with dark background */
-    filter: drop-shadow(0 2px 8px rgba(0, 112, 210, 0.15));
   }
   .cert:hover .cert-badge img {
     transform: scale(1.08);
-    filter: drop-shadow(0 4px 12px rgba(0, 112, 210, 0.3));
   }
-  /* Logo-only badges (Power BI, Tableau, etc.) get a circular background */
+  /* Logo-only badges (Power BI, Tableau, etc.) get a circular white background */
   .cert-badge.logo-frame {
     background: #fff;
     border-radius: 50%;
@@ -621,8 +607,10 @@
     padding: 1rem;
   }
   .cert-grid-superbadges .cert-badge {
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
+    background: transparent;
+    padding: 0;
   }
   .cert-grid-superbadges .cert-name {
     font-size: 0.85rem;
