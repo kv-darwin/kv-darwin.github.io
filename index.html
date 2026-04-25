@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Darwin Balaji K — Salesforce Developer | CPQ · Revenue Cloud · Apex</title>
-<meta name="description" content="Salesforce Developer specializing in CPQ, Revenue Cloud, Billing, and Apex. 3+ years building enterprise quote-to-cash solutions for HealthTech, Telecom, and Insurance clients." />
-<meta name="keywords" content="Salesforce Developer, CPQ Specialist, Revenue Cloud, Apex, QCP, Billing, Salesforce Portfolio" />
+<title>Darwin Balaji K — Salesforce Developer | CPQ · Billing · Revenue Cloud</title>
+<meta name="description" content="Salesforce Developer with 2+ years building scalable Quote-to-Cash solutions. Certified CPQ Specialist, Platform Developer I, Revenue Cloud Consultant." />
+<meta name="keywords" content="Salesforce Developer, CPQ Specialist, Revenue Cloud Consultant, Apex, QCP, Salesforce Billing, LWC, Madurai" />
 <meta name="author" content="Darwin Balaji K" />
 
-<!-- Open Graph -->
 <meta property="og:title" content="Darwin Balaji K — Salesforce Developer" />
-<meta property="og:description" content="CPQ · Revenue Cloud · Apex · QCP. Senior-level Salesforce engineering for quote-to-cash." />
+<meta property="og:description" content="CPQ · Billing · Revenue Cloud · Apex. 2+ years delivering Quote-to-Cash solutions across enterprise environments." />
 <meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,7 +35,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -48,7 +46,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -59,12 +56,9 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ===== NAV ===== */
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 100;
     padding: 1.5rem 4rem;
     display: flex;
@@ -79,12 +73,14 @@
 
   .logo {
     font-family: var(--serif);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    font-style: italic;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
-  .logo span { color: var(--accent); }
+  .logo em {
+    font-style: italic;
+    color: var(--accent);
+  }
 
   .nav-links {
     display: flex;
@@ -113,7 +109,6 @@
   }
   .nav-links a:hover::after { width: 100%; }
 
-  /* ===== HERO ===== */
   .hero {
     min-height: 100vh;
     padding: 8rem 4rem 4rem;
@@ -164,10 +159,7 @@
     margin-bottom: 2rem;
     max-width: 1200px;
   }
-  .hero h1 .line {
-    display: block;
-    overflow: hidden;
-  }
+  .hero h1 .line { display: block; overflow: hidden; }
   .hero h1 .line span {
     display: inline-block;
     transform: translateY(110%);
@@ -186,7 +178,7 @@
   .hero-tagline {
     font-size: 1.15rem;
     color: var(--ink-soft);
-    max-width: 580px;
+    max-width: 620px;
     margin-bottom: 3rem;
     line-height: 1.6;
     opacity: 0;
@@ -232,15 +224,10 @@
   .btn-primary:hover {
     background: var(--accent-bright);
     border-color: var(--accent-bright);
-    color: var(--bg);
   }
   .btn svg { width: 14px; height: 14px; }
 
-  /* ===== SECTION SHARED ===== */
-  section {
-    padding: 8rem 4rem;
-    position: relative;
-  }
+  section { padding: 8rem 4rem; position: relative; }
 
   .section-label {
     font-family: var(--mono);
@@ -276,7 +263,6 @@
     color: var(--accent);
   }
 
-  /* ===== ABOUT ===== */
   .about {
     border-top: 1px solid var(--line);
     background: var(--bg-soft);
@@ -289,10 +275,7 @@
     align-items: start;
   }
 
-  .about-portrait {
-    position: sticky;
-    top: 8rem;
-  }
+  .about-portrait { position: sticky; top: 8rem; }
 
   .portrait-card {
     aspect-ratio: 3/4;
@@ -346,10 +329,7 @@
     margin-bottom: 1.5rem;
   }
   .about-content p:last-child { margin-bottom: 0; }
-  .about-content p strong {
-    font-weight: 500;
-    color: var(--accent);
-  }
+  .about-content p strong { font-weight: 500; color: var(--accent); }
 
   .stats {
     display: grid;
@@ -374,7 +354,6 @@
     line-height: 1.4;
   }
 
-  /* ===== EXPERTISE ===== */
   .expertise-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -389,12 +368,8 @@
     transition: background 0.4s ease;
     position: relative;
   }
-  .expertise-card:hover {
-    background: var(--bg-soft);
-  }
-  .expertise-card:hover .expertise-num {
-    color: var(--accent);
-  }
+  .expertise-card:hover { background: var(--bg-soft); }
+  .expertise-card:hover .expertise-num { color: var(--accent); }
 
   .expertise-num {
     font-family: var(--mono);
@@ -438,7 +413,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* ===== EXPERIENCE ===== */
   .experience {
     background: var(--bg-soft);
     border-top: 1px solid var(--line);
@@ -502,10 +476,36 @@
     gap: 0.5rem;
     margin-top: 1.2rem;
   }
+  .job-bullets {
+    list-style: none;
+    margin-bottom: 1rem;
+  }
+  .job-bullets li {
+    padding: 0.4rem 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
 
-  /* ===== CERTIFICATIONS ===== */
-  .certs-wrap {
-    border-top: 1px solid var(--line);
+  .certs-wrap { border-top: 1px solid var(--line); }
+
+  .certs-section { margin-bottom: 3rem; }
+  .certs-section:last-child { margin-bottom: 0; }
+  .certs-subtitle {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
   }
 
   .certs-grid {
@@ -541,7 +541,7 @@
     font-family: var(--serif);
     font-style: italic;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
   .cert-name {
     font-size: 0.92rem;
@@ -556,7 +556,6 @@
     margin-top: 0.2rem;
   }
 
-  /* ===== PROJECTS ===== */
   .projects {
     background: var(--bg-soft);
     border-top: 1px solid var(--line);
@@ -647,10 +646,7 @@
     font-family: var(--mono);
   }
 
-  /* ===== EDUCATION & PUBLICATIONS ===== */
-  .edu-pub-wrap {
-    border-top: 1px solid var(--line);
-  }
+  .edu-pub-wrap { border-top: 1px solid var(--line); }
   .edu-pub-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -704,9 +700,19 @@
     font-size: 0.75rem;
     color: var(--ink-muted);
     letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
   }
+  .pub-link {
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .pub-link:hover { color: var(--accent-bright); }
 
-  /* ===== CONTACT ===== */
   .contact {
     background: var(--bg);
     border-top: 1px solid var(--line);
@@ -784,10 +790,7 @@
     letter-spacing: 0.05em;
   }
 
-  /* ===== ANIMATIONS ===== */
-  @keyframes slideUp {
-    to { transform: translateY(0); }
-  }
+  @keyframes slideUp { to { transform: translateY(0); } }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -803,7 +806,6 @@
     transform: translateY(0);
   }
 
-  /* ===== RESPONSIVE ===== */
   @media (max-width: 968px) {
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { display: none; }
@@ -827,7 +829,7 @@
 <body>
 
 <nav id="navbar">
-  <div class="logo">Darwin<span>.</span><em>K</em></div>
+  <div class="logo">Darwin Balaji <em>K</em></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#expertise">Expertise</a></li>
@@ -837,18 +839,17 @@
   </ul>
 </nav>
 
-<!-- ===== HERO ===== -->
 <header class="hero">
-  <div class="hero-meta">Salesforce Developer · Madurai, India · Available for hire</div>
+  <div class="hero-meta">Salesforce Developer · Madurai, India · Open to opportunities</div>
   <h1>
-    <span class="line"><span>Building <em>quote-to-cash</em></span></span>
+    <span class="line"><span>Building <em>Quote-to-Cash</em></span></span>
     <span class="line"><span>solutions on the</span></span>
     <span class="line"><span>Salesforce platform.</span></span>
   </h1>
   <p class="hero-tagline">
-    Salesforce Developer with 3+ years of experience architecting CPQ, Revenue Cloud,
-    and Billing solutions for HealthTech, Telecom, and Insurance enterprises.
-    Specialized in Apex, QCP, and complex amendment-renewal lifecycles.
+    Salesforce Developer with 2+ years of hands-on experience in CPQ, Billing, and core platform development.
+    Certified CPQ Specialist, Platform Developer I, and Revenue Cloud Consultant — delivering scalable solutions
+    across Life Sciences, Non-Profit, and Telecom enterprises.
   </p>
   <div class="hero-actions">
     <a href="#contact" class="btn btn-primary">
@@ -859,7 +860,6 @@
   </div>
 </header>
 
-<!-- ===== ABOUT ===== -->
 <section id="about" class="about">
   <div class="section-label">About</div>
   <h2 class="section-title">A developer who treats <em>Salesforce</em> as a craft.</h2>
@@ -870,49 +870,47 @@
         <div class="portrait-initials">D<em>K</em></div>
         <div class="portrait-meta">
           <span>Darwin Balaji K</span>
-          <span>B.E. ECE · 8.12 CGPA</span>
-          <span>KPR Institute, 2024</span>
+          <span>Salesforce Developer</span>
+          <span>Madurai, India</span>
         </div>
       </div>
     </div>
 
     <div class="about-content reveal">
       <p>
-        I write Apex, design QCP logic, and ship CPQ and Revenue Cloud solutions
-        that hold up in production — through high-volume amendments, segment-aware
-        promotions, and the kind of cross-object validation that <strong>declarative tools simply
-        can't handle</strong>.
+        I configure CPQ Product Rules and Price Rules, write QCP validations, build LWC components,
+        and deliver <strong>end-to-end Quote-to-Cash workflows</strong> that hold up across complex enterprise
+        environments.
       </p>
       <p>
-        At my current engagement with a Veeva client, I extend a <strong>2,600+ line QCP codebase</strong>
-        covering billing-date orchestration, amendment lifecycles, and renewal logic.
-        Previously I worked across AARP and 8x8 Telecom on quote-to-cash transformations.
+        My current engagement is on a Life Sciences SaaS platform, where I build advanced approval chains,
+        Apex-driven subscription billing, and dynamic Conga templates for amendment and renewal quotes —
+        deployed across DEV, QA, UAT, and PROD via <strong>Gearset and Copado CI/CD</strong>.
       </p>
       <p>
-        Outside of Salesforce, I run <strong>Morivo Organics</strong> — a moringa export
-        venture in Karur, Tamil Nadu — which keeps me close to the operational
-        realities of the businesses my code is meant to serve.
+        I'm certified as a Salesforce <strong>CPQ Specialist, Platform Developer I, Revenue Cloud Consultant,
+        AI Associate, and AI Specialist</strong> — and I bring an engineer's curiosity and a quote-to-cash
+        practitioner's pragmatism to every problem.
       </p>
 
       <div class="stats">
         <div>
-          <div class="stat-num">3<em>+</em></div>
-          <div class="stat-label">Years of Salesforce engineering</div>
+          <div class="stat-num">2<em>+</em></div>
+          <div class="stat-label">Years building Quote-to-Cash on Salesforce</div>
         </div>
         <div>
-          <div class="stat-num">7</div>
-          <div class="stat-label">Industry-recognised certifications</div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Salesforce certifications &amp; 4 superbadges</div>
         </div>
         <div>
-          <div class="stat-num">2.6<em>K</em></div>
-          <div class="stat-label">Lines of QCP shipped to production</div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Industries delivered: Life Sciences, Non-Profit, Telecom</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== EXPERTISE ===== -->
 <section id="expertise">
   <div class="section-label">Expertise</div>
   <h2 class="section-title">Where I do my <em>best work.</em></h2>
@@ -923,72 +921,72 @@
       <div class="expertise-num">/ 01</div>
       <h3>Salesforce <em>CPQ</em></h3>
       <p>
-        Product configuration, pricing rules, advanced QCP scripting,
-        bundle option logic, and amendment/renewal workflows for subscription businesses.
+        Products &amp; Bundles, Feature/Option Constraints, MDQ, Discount Schedules, Product &amp; Price Rules,
+        Quote Templates, Subscriptions, Contracts, Custom Actions, Guided Selling, Advanced Approvals, and QCP.
       </p>
       <div class="expertise-tags">
         <span class="tag">QCP</span>
         <span class="tag">Price Rules</span>
         <span class="tag">Product Rules</span>
-        <span class="tag">Amendments</span>
-        <span class="tag">Renewals</span>
+        <span class="tag">Quote Templates</span>
+        <span class="tag">Advanced Approvals</span>
       </div>
     </div>
 
     <div class="expertise-card">
       <div class="expertise-num">/ 02</div>
-      <h3>Revenue Cloud <em>Advanced</em></h3>
+      <h3>Salesforce <em>Billing</em></h3>
       <p>
-        Pricing Procedures, Discovery Procedures, Attribute Rules, Rate Cards,
-        and Price Adjustment Matrices on the next-generation revenue platform.
+        Order &amp; Subscription Management, Invoice Generation, Payments, Usage-based Billing, Adjustments,
+        Credit/Debit Notes, Renewals, Refunds, Legal Entity, Taxation, General Ledger, and Rates.
       </p>
       <div class="expertise-tags">
-        <span class="tag">RCA</span>
-        <span class="tag">Pricing Procedures</span>
-        <span class="tag">Rate Cards</span>
-        <span class="tag">Attribute Rules</span>
+        <span class="tag">Invoicing</span>
+        <span class="tag">Subscriptions</span>
+        <span class="tag">Renewals</span>
+        <span class="tag">Taxation</span>
+        <span class="tag">Rate Management</span>
       </div>
     </div>
 
     <div class="expertise-card">
       <div class="expertise-num">/ 03</div>
-      <h3>Apex <em>& Integration</em></h3>
+      <h3>Apex <em>&amp; Development</em></h3>
       <p>
-        Bulkified triggers, Queueable and Batch Apex, Platform Events, REST/SOAP APIs,
-        Composite API, and trigger framework patterns that prevent recursion at scale.
+        Triggers, Test Classes, Batch Apex, Governor Limits, Exception Handling, DML, SOQL/SOSL,
+        Lightning Web Components, Visualforce, REST/SOAP APIs, and Trigger Action Framework.
       </p>
       <div class="expertise-tags">
         <span class="tag">Apex</span>
         <span class="tag">LWC</span>
-        <span class="tag">Platform Events</span>
-        <span class="tag">REST API</span>
+        <span class="tag">Visualforce</span>
+        <span class="tag">REST/SOAP</span>
         <span class="tag">SOQL</span>
       </div>
     </div>
 
     <div class="expertise-card">
       <div class="expertise-num">/ 04</div>
-      <h3>Billing <em>& CLM</em></h3>
+      <h3>Platform <em>&amp; DevOps</em></h3>
       <p>
-        Salesforce Billing for invoicing, taxation, and revenue recognition.
-        DocuSign CLM integration, Vlocity DocuSign templates, and bypass patterns
-        for managed package limitations.
+        Configuration &amp; Customization, Data Modelling, Security &amp; Sharing, Flows, Process Builder, Reports
+        &amp; Dashboards, Sales &amp; Service Cloud, and CI/CD via Gearset, Copado, JetStream, and Changesets.
       </p>
       <div class="expertise-tags">
-        <span class="tag">Salesforce Billing</span>
-        <span class="tag">DocuSign CLM</span>
-        <span class="tag">Vlocity</span>
-        <span class="tag">Invoicing</span>
+        <span class="tag">Flows</span>
+        <span class="tag">Gearset</span>
+        <span class="tag">Copado</span>
+        <span class="tag">FlexiPages</span>
+        <span class="tag">CI/CD</span>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== EXPERIENCE ===== -->
 <section id="experience" class="experience">
   <div class="section-label">Experience</div>
-  <h2 class="section-title">Three years across <em>HealthTech, Insurance & Telecom.</em></h2>
+  <h2 class="section-title">Engagements across <em>Life Sciences, Non-Profit &amp; Telecom.</em></h2>
 
   <div class="timeline">
 
@@ -998,23 +996,23 @@
         <br><span class="role-tag">Current</span>
       </div>
       <div class="job-content">
-        <h3>Salesforce Developer — CPQ &amp; Revenue Cloud</h3>
-        <div class="job-company">DeepDive IT Solutions · HealthTech engagement (Veeva)</div>
-        <p>
-          Architecting and extending a 2,600+ line QCP codebase covering cross-object
-          validation, billing-date orchestration, segment-aware promotions, and
-          amendment/renewal logic for a global HealthTech client.
-        </p>
-        <p>
-          Exploring Salesforce Revenue Cloud Advanced (RCA) — Pricing Procedures,
-          Attribute Rules, Rate Cards — to position the client for migration off classic CPQ.
-        </p>
+        <h3>Salesforce Developer — Freelance</h3>
+        <div class="job-company">DeepDive IT Solutions LLC · Life Sciences SaaS Platform</div>
+        <p>CPQ &amp; Pricing Optimization for a global Life Sciences enterprise.</p>
+        <ul class="job-bullets">
+          <li>Built CPQ Product Rules, Price Rules, and Summary Variables with lookup queries to auto-select dependent products</li>
+          <li>Developed QCP validations to enforce product dependency rules and prevent orphan product selections</li>
+          <li>Designed advanced approval chains, rules, and email templates for Deal Desk and BOOST user workflows</li>
+          <li>Implemented Apex class to manage subscription billing and enforce edit restrictions on subscription records</li>
+          <li>Updated Conga templates for Net New, Amendment, and Renewal quotes with dynamic field-driven content</li>
+          <li>Managed deployments across DEV, QA, UAT, and PROD environments using Gearset</li>
+        </ul>
         <div class="job-tech">
           <span class="tag">CPQ</span>
           <span class="tag">QCP</span>
           <span class="tag">Apex</span>
-          <span class="tag">RCA</span>
-          <span class="tag">DocuSign CLM</span>
+          <span class="tag">Conga</span>
+          <span class="tag">Gearset</span>
         </div>
       </div>
     </div>
@@ -1023,17 +1021,20 @@
       <div class="job-period">Jan 2025 — Jun 2025</div>
       <div class="job-content">
         <h3>Salesforce Developer</h3>
-        <div class="job-company">Kriswin Infotech · Insurance &amp; Membership engagement</div>
-        <p>
-          Delivered Apex, LWC, and CPQ enhancements on a large-scale insurance and
-          membership platform serving millions of members. Worked on quote-to-cash
-          flows and member-facing self-service experiences.
-        </p>
+        <div class="job-company">Kriswin Infotech Private Limited · Non-Profit Enterprise Client</div>
+        <p>Salesforce Revenue Cloud Optimization for a large-scale non-profit serving millions of members.</p>
+        <ul class="job-bullets">
+          <li>Designed and deployed global picklists and formula fields to maintain data consistency across the org</li>
+          <li>Built custom actions and automated scripts to add products to QLE based on business rules — using Flows and LWC</li>
+          <li>Customized Lightning record pages (FlexiPages) for optimal field accessibility and improved UX</li>
+          <li>Developed dynamic quote templates for accurate, professional client-facing proposals</li>
+        </ul>
         <div class="job-tech">
-          <span class="tag">Apex</span>
-          <span class="tag">LWC</span>
+          <span class="tag">Revenue Cloud</span>
           <span class="tag">CPQ</span>
-          <span class="tag">Salesforce Billing</span>
+          <span class="tag">LWC</span>
+          <span class="tag">Flows</span>
+          <span class="tag">FlexiPages</span>
         </div>
       </div>
     </div>
@@ -1042,17 +1043,43 @@
       <div class="job-period">May 2024 — Nov 2024</div>
       <div class="job-content">
         <h3>Salesforce Developer</h3>
-        <div class="job-company">DeepDive IT Solutions · Telecom engagement</div>
-        <p>
-          Built CPQ configurations, Apex automation, and integration layers for a
-          cloud communications enterprise. Focused on quote validation, pricing logic,
-          and high-volume order processing patterns.
-        </p>
+        <div class="job-company">DeepDive IT Solutions LLC · US-based Telecom SaaS Platform</div>
+        <p>Salesforce Code Optimization and CPQ enhancements for a US-based telecom SaaS enterprise.</p>
+        <ul class="job-bullets">
+          <li>Migrated automations (Workflows, Process Builder, Flows) to Apex using the Trigger Action Framework</li>
+          <li>Converted business logic to Salesforce CPQ Price Rules to improve performance and configurability</li>
+          <li>Designed and implemented advanced and standard approval processes for business workflows</li>
+          <li>Built notification flows alerting Sales Operations on renewal and business-critical events</li>
+          <li>Deployed Apex classes, triggers, and test classes to QA and UAT using Copado CI/CD</li>
+          <li>Optimized Apex by resolving SOQL limit issues through bulkification and query optimization</li>
+        </ul>
         <div class="job-tech">
           <span class="tag">CPQ</span>
-          <span class="tag">Apex Triggers</span>
-          <span class="tag">Batch Apex</span>
-          <span class="tag">Integrations</span>
+          <span class="tag">Trigger Action Framework</span>
+          <span class="tag">Apex</span>
+          <span class="tag">Copado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-period">
+        Dec 2023 — Apr 2024
+        <br><span class="role-tag">Internship</span>
+      </div>
+      <div class="job-content">
+        <h3>Salesforce Developer Intern</h3>
+        <div class="job-company">DeepDive IT Solutions LLC</div>
+        <ul class="job-bullets">
+          <li>Translated business requirements into Salesforce configurations within sandbox environments</li>
+          <li>Configured CPQ Product Rules and Price Rules to automate product selection and pricing logic</li>
+          <li>Managed user access and security — IP restrictions and org-wide security settings</li>
+          <li>Built and tested automation Flows to streamline business processes prior to deployment</li>
+        </ul>
+        <div class="job-tech">
+          <span class="tag">CPQ</span>
+          <span class="tag">Flows</span>
+          <span class="tag">Configuration</span>
         </div>
       </div>
     </div>
@@ -1060,72 +1087,124 @@
   </div>
 </section>
 
-<!-- ===== CERTIFICATIONS ===== -->
 <section id="certifications" class="certs-wrap">
   <div class="section-label">Certifications</div>
   <h2 class="section-title">Credentialed across the <em>Salesforce stack.</em></h2>
 
-  <div class="certs-grid reveal">
-    <div class="cert">
-      <div class="cert-icon">CPQ</div>
-      <div>
-        <div class="cert-name">CPQ Specialist</div>
-        <div class="cert-issuer">Salesforce</div>
+  <div class="reveal">
+
+    <div class="certs-section">
+      <h3 class="certs-subtitle">Salesforce Certifications</h3>
+      <div class="certs-grid">
+        <div class="cert">
+          <div class="cert-icon">CPQ</div>
+          <div>
+            <div class="cert-name">CPQ Specialist</div>
+            <div class="cert-issuer">Salesforce</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">PD1</div>
+          <div>
+            <div class="cert-name">Platform Developer I</div>
+            <div class="cert-issuer">Salesforce</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">RC</div>
+          <div>
+            <div class="cert-name">Revenue Cloud Consultant</div>
+            <div class="cert-issuer">Salesforce</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">AI</div>
+          <div>
+            <div class="cert-name">AI Specialist</div>
+            <div class="cert-issuer">Salesforce</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">AI</div>
+          <div>
+            <div class="cert-name">AI Associate</div>
+            <div class="cert-issuer">Salesforce</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="cert">
-      <div class="cert-icon">PD1</div>
-      <div>
-        <div class="cert-name">Platform Developer I</div>
-        <div class="cert-issuer">Salesforce</div>
+
+    <div class="certs-section">
+      <h3 class="certs-subtitle">Trailhead Superbadges</h3>
+      <div class="certs-grid">
+        <div class="cert">
+          <div class="cert-icon">B</div>
+          <div>
+            <div class="cert-name">Billing</div>
+            <div class="cert-issuer">Salesforce Trailhead</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">B+</div>
+          <div>
+            <div class="cert-name">Advanced Billing</div>
+            <div class="cert-issuer">Salesforce Trailhead</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">BA</div>
+          <div>
+            <div class="cert-name">Business Admin Specialist</div>
+            <div class="cert-issuer">Salesforce Trailhead</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">FA</div>
+          <div>
+            <div class="cert-name">Flow Admin Specialist</div>
+            <div class="cert-issuer">Salesforce Trailhead</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="cert">
-      <div class="cert-icon">AI</div>
-      <div>
-        <div class="cert-name">AI Specialist</div>
-        <div class="cert-issuer">Salesforce</div>
+
+    <div class="certs-section">
+      <h3 class="certs-subtitle">Additional Certifications</h3>
+      <div class="certs-grid">
+        <div class="cert">
+          <div class="cert-icon">PB</div>
+          <div>
+            <div class="cert-name">Power BI</div>
+            <div class="cert-issuer">Microsoft</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">T</div>
+          <div>
+            <div class="cert-name">Tableau</div>
+            <div class="cert-issuer">Tableau</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">Py</div>
+          <div>
+            <div class="cert-name">Python &amp; Data Structures</div>
+            <div class="cert-issuer">Certified</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-icon">SQL</div>
+          <div>
+            <div class="cert-name">MySQL</div>
+            <div class="cert-issuer">Certified</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="cert">
-      <div class="cert-icon">AI</div>
-      <div>
-        <div class="cert-name">AI Associate</div>
-        <div class="cert-issuer">Salesforce</div>
-      </div>
-    </div>
-    <div class="cert">
-      <div class="cert-icon">B</div>
-      <div>
-        <div class="cert-name">Billing Superbadge</div>
-        <div class="cert-issuer">Salesforce Trailhead</div>
-      </div>
-    </div>
-    <div class="cert">
-      <div class="cert-icon">B+</div>
-      <div>
-        <div class="cert-name">Advanced Billing Superbadge</div>
-        <div class="cert-issuer">Salesforce Trailhead</div>
-      </div>
-    </div>
-    <div class="cert">
-      <div class="cert-icon">PB</div>
-      <div>
-        <div class="cert-name">Power BI</div>
-        <div class="cert-issuer">Microsoft</div>
-      </div>
-    </div>
-    <div class="cert">
-      <div class="cert-icon">T</div>
-      <div>
-        <div class="cert-name">Tableau</div>
-        <div class="cert-issuer">Tableau</div>
-      </div>
-    </div>
+
   </div>
 </section>
 
-<!-- ===== PROJECTS ===== -->
 <section id="projects" class="projects">
   <div class="section-label">Selected Work</div>
   <h2 class="section-title">Solutions shipped to <em>production.</em></h2>
@@ -1135,25 +1214,27 @@
     <div class="project reveal">
       <div>
         <div class="project-num">01</div>
-        <div class="project-domain">HealthTech · Veeva</div>
+        <div class="project-domain">Life Sciences SaaS</div>
       </div>
       <div>
-        <h3>Enterprise QCP for <em>amendment-renewal lifecycle</em></h3>
+        <h3>CPQ &amp; pricing optimization for <em>global Life Sciences enterprise</em></h3>
         <p class="project-desc">
-          Architected a 2,600+ line Quote Calculator Plugin extending Salesforce CPQ
-          with logic that declarative configuration alone could not satisfy.
+          Designed and built advanced CPQ pricing logic, QCP validations, approval workflows, and
+          subscription-billing controls for a Life Sciences SaaS platform.
         </p>
         <ul class="project-highlights">
-          <li>Cross-object validation against active subscriptions and historical orders</li>
-          <li>Billing-date orchestration aligned to segment-specific calendars</li>
-          <li>Promotion engine with segment-aware eligibility and stacking rules</li>
-          <li>Amendment and renewal logic preserving prior-term pricing where contractual</li>
+          <li>Product Rules &amp; Price Rules with lookup queries auto-selecting dependent products</li>
+          <li>QCP validations enforcing dependencies and preventing orphan product selections</li>
+          <li>Advanced approval chains and email templates for Deal Desk and BOOST workflows</li>
+          <li>Apex class managing subscription billing with edit restrictions on subscription records</li>
+          <li>Conga templates for Net New, Amendment, and Renewal quotes with dynamic content</li>
         </ul>
         <div class="job-tech">
           <span class="tag">QCP</span>
           <span class="tag">CPQ</span>
-          <span class="tag">JavaScript</span>
           <span class="tag">Apex</span>
+          <span class="tag">Conga</span>
+          <span class="tag">Gearset</span>
         </div>
       </div>
     </div>
@@ -1161,24 +1242,25 @@
     <div class="project reveal">
       <div>
         <div class="project-num">02</div>
-        <div class="project-domain">Insurance &amp; Membership</div>
+        <div class="project-domain">Non-Profit Enterprise</div>
       </div>
       <div>
-        <h3>Quote-to-cash for <em>membership renewals</em></h3>
+        <h3>Revenue Cloud optimization for <em>large-scale non-profit</em></h3>
         <p class="project-desc">
-          Delivered Apex, LWC, and CPQ enhancements on a large-scale insurance and
-          membership platform serving millions of members across multiple product lines.
+          Streamlined Revenue Cloud configuration and quote generation for a non-profit enterprise
+          serving millions of members.
         </p>
         <ul class="project-highlights">
-          <li>Member self-service quote and renewal flows on Lightning Web Components</li>
-          <li>Bulkified Apex triggers and batch jobs for membership lifecycle events</li>
-          <li>Salesforce Billing configuration for invoicing and revenue recognition</li>
+          <li>Global picklists and formula fields for org-wide data consistency</li>
+          <li>Custom actions and Flow/LWC scripts to add products to QLE based on business rules</li>
+          <li>Lightning record pages (FlexiPages) optimized for field accessibility and UX</li>
+          <li>Dynamic quote templates enabling accurate, professional client-facing proposals</li>
         </ul>
         <div class="job-tech">
+          <span class="tag">Revenue Cloud</span>
           <span class="tag">CPQ</span>
           <span class="tag">LWC</span>
-          <span class="tag">Salesforce Billing</span>
-          <span class="tag">Apex</span>
+          <span class="tag">Flows</span>
         </div>
       </div>
     </div>
@@ -1186,24 +1268,26 @@
     <div class="project reveal">
       <div>
         <div class="project-num">03</div>
-        <div class="project-domain">Cloud Communications · Telecom</div>
+        <div class="project-domain">US-based Telecom SaaS</div>
       </div>
       <div>
-        <h3>CPQ &amp; integration for <em>high-volume order flow</em></h3>
+        <h3>Apex code optimization &amp; <em>Trigger Action Framework migration</em></h3>
         <p class="project-desc">
-          Built CPQ configurations and Apex automation for a cloud communications
-          enterprise managing high-volume telecom subscriptions.
+          Refactored legacy automation into Apex on the Trigger Action Framework and converted
+          business logic to CPQ Price Rules for a US-based telecom SaaS platform.
         </p>
         <ul class="project-highlights">
-          <li>Quote validation logic enforcing eligibility, dependencies, and bundle constraints</li>
-          <li>Pricing rules tuned for tiered telecom plans and contract durations</li>
-          <li>Batch Apex and Queueable patterns for nightly reconciliation jobs</li>
+          <li>Migrated Workflows, Process Builders, and Flows to Apex via Trigger Action Framework</li>
+          <li>Converted core business logic to CPQ Price Rules for performance and configurability</li>
+          <li>Designed advanced and standard approval processes for renewal and business workflows</li>
+          <li>Resolved SOQL limit issues through bulkification and query optimization</li>
+          <li>Deployed Apex classes, triggers, and tests to QA/UAT using Copado CI/CD</li>
         </ul>
         <div class="job-tech">
+          <span class="tag">Apex</span>
+          <span class="tag">Trigger Action Framework</span>
           <span class="tag">CPQ</span>
-          <span class="tag">Apex Triggers</span>
-          <span class="tag">Batch Apex</span>
-          <span class="tag">REST API</span>
+          <span class="tag">Copado</span>
         </div>
       </div>
     </div>
@@ -1211,10 +1295,9 @@
   </div>
 </section>
 
-<!-- ===== EDUCATION & PUBLICATIONS ===== -->
 <section class="edu-pub-wrap">
   <div class="section-label">Education &amp; Research</div>
-  <h2 class="section-title">Foundations <em>& published work.</em></h2>
+  <h2 class="section-title">Foundations <em>&amp; published work.</em></h2>
 
   <div class="edu-pub-grid reveal">
 
@@ -1230,19 +1313,24 @@
     <div class="pub-block">
       <h3>IEEE Publications</h3>
       <div class="pub-card">
-        <div class="pub-title">E-Voting System Using Blockchain Technology</div>
-        <div class="pub-meta">IEEE · 2024</div>
+        <div class="pub-title">Design and Implementation of Secured E-Voting System</div>
+        <div class="pub-meta">IEEE · ICC-ROBINS · 2024</div>
+        <a href="https://ieeexplore.ieee.org/document/10533907" target="_blank" rel="noopener" class="pub-link">
+          Read on IEEE Xplore →
+        </a>
       </div>
       <div class="pub-card">
-        <div class="pub-title">Universal Robots for Drug Delivery Systems</div>
-        <div class="pub-meta">IEEE · 2023</div>
+        <div class="pub-title">Effective Delivery of Drugs to Authenticated Patients Using Universal Robots</div>
+        <div class="pub-meta">IEEE · ICAECC · 2023</div>
+        <a href="https://ieeexplore.ieee.org/document/10560184" target="_blank" rel="noopener" class="pub-link">
+          Read on IEEE Xplore →
+        </a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact" class="contact">
   <div class="contact-label">— Let's talk</div>
   <h2>Have a Salesforce<br>challenge worth <em>solving?</em></h2>
@@ -1253,15 +1341,15 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Email
     </a>
-    <a href="tel:+919566741751" class="contact-link">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      +91 95667 41751
-    </a>
-    <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="contact-link">
+    <a href="https://www.linkedin.com/in/darwin-balaji-k" target="_blank" rel="noopener" class="contact-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
-    <a href="https://trailblazer.me" target="_blank" rel="noopener" class="contact-link">
+    <a href="https://github.com/kv-darwin" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.salesforce.com/trailblazer/darwinbalaji" target="_blank" rel="noopener" class="contact-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       Trailblazer
     </a>
@@ -1274,13 +1362,11 @@
 </footer>
 
 <script>
-  // Navbar scroll effect
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
   });
 
-  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1292,7 +1378,6 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
   reveals.forEach((el) => observer.observe(el));
 
-  // Smooth anchor scrolling with offset
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const target = document.querySelector(a.getAttribute('href'));
