@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Darwin Balaji K — Salesforce Developer | CPQ · Billing · Revenue Cloud</title>
-<meta name="description" content="Salesforce Developer with 2+ years building scalable Quote-to-Cash solutions. Certified CPQ Specialist, Platform Developer I, Revenue Cloud Consultant." />
-<meta name="keywords" content="Salesforce Developer, CPQ Specialist, Revenue Cloud Consultant, Apex, QCP, Salesforce Billing, LWC, Madurai" />
+<meta name="description" content="Salesforce Developer with 2+ years building scalable Quote-to-Cash solutions. Certified CPQ Administrator, Platform Developer I, Revenue Cloud Consultant, Agentforce Specialist." />
+<meta name="keywords" content="Salesforce Developer, CPQ Administrator, Revenue Cloud Consultant, Agentforce Specialist, Apex, QCP, Salesforce Billing, LWC, Madurai" />
 <meta name="author" content="Darwin Balaji K" />
 
 <meta property="og:title" content="Darwin Balaji K — Salesforce Developer" />
@@ -298,6 +298,40 @@
     background: radial-gradient(circle at top right, rgba(212, 165, 116, 0.12), transparent 60%);
     pointer-events: none;
   }
+  .portrait-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+  }
+  .portrait-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+    transition: filter 0.4s ease;
+  }
+  .portrait-card:hover .portrait-image img {
+    filter: grayscale(0%) contrast(1);
+  }
+  .portrait-fallback {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 8rem;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+  }
+  .portrait-fallback em { font-style: italic; }
   .portrait-initials {
     font-family: var(--serif);
     font-size: 8rem;
@@ -515,45 +549,102 @@
   }
 
   .cert {
-    padding: 1.5rem;
+    padding: 1.25rem;
     border: 1px solid var(--line);
     background: var(--bg-card);
     display: flex;
     align-items: center;
     gap: 1rem;
     transition: all 0.3s ease;
-    border-radius: 3px;
+    border-radius: 4px;
   }
   .cert:hover {
     border-color: var(--accent-dim);
     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   }
-  .cert-icon {
-    width: 44px;
-    height: 44px;
+  .cert-badge {
+    width: 60px;
+    height: 60px;
     flex-shrink: 0;
-    background: linear-gradient(135deg, var(--accent), var(--accent-dim));
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--bg);
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 600;
-    font-size: 0.95rem;
+    position: relative;
+  }
+  .cert-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+  .cert:hover .cert-badge img {
+    transform: scale(1.08);
+  }
+  /* Logo-only badges (Power BI, Tableau, etc.) get a circular background */
+  .cert-badge.logo-frame {
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .cert-badge.logo-frame.dark {
+    background: #1a1a1a;
   }
   .cert-name {
     font-size: 0.92rem;
     font-weight: 500;
     line-height: 1.3;
+    color: var(--ink);
   }
   .cert-issuer {
     font-family: var(--mono);
     font-size: 0.7rem;
     color: var(--ink-muted);
     letter-spacing: 0.05em;
-    margin-top: 0.2rem;
+    margin-top: 0.25rem;
+  }
+  .cert-grid-superbadges {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.85rem;
+  }
+  .cert-grid-superbadges .cert {
+    padding: 1rem;
+  }
+  .cert-grid-superbadges .cert-badge {
+    width: 50px;
+    height: 50px;
+  }
+  .cert-grid-superbadges .cert-name {
+    font-size: 0.85rem;
+  }
+  /* Agentblazer status callout */
+  .agentblazer-card {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.08), rgba(212, 165, 116, 0.02));
+    border: 1px solid rgba(212, 165, 116, 0.25);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .agentblazer-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  .agentblazer-content h4 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--accent);
+  }
+  .agentblazer-content p {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
   }
 
   .projects {
@@ -848,7 +939,7 @@
   </h1>
   <p class="hero-tagline">
     Salesforce Developer with 2+ years of hands-on experience in CPQ, Billing, and core platform development.
-    Certified CPQ Specialist, Platform Developer I, and Revenue Cloud Consultant — delivering scalable solutions
+    Certified CPQ Administrator, Platform Developer I, Revenue Cloud Consultant, and Agentforce Specialist — delivering scalable solutions
     across Life Sciences, Non-Profit, and Telecom enterprises.
   </p>
   <div class="hero-actions">
@@ -867,7 +958,10 @@
   <div class="about-grid">
     <div class="about-portrait">
       <div class="portrait-card reveal">
-        <div class="portrait-initials">D<em>K</em></div>
+        <div class="portrait-image">
+          <img src="profile.jpg" alt="Darwin Balaji K — Salesforce Developer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="portrait-fallback">D<em>K</em></div>
+        </div>
         <div class="portrait-meta">
           <span>Darwin Balaji K</span>
           <span>Salesforce Developer</span>
@@ -888,9 +982,9 @@
         deployed across DEV, QA, UAT, and PROD via <strong>Gearset and Copado CI/CD</strong>.
       </p>
       <p>
-        I'm certified as a Salesforce <strong>CPQ Specialist, Platform Developer I, Revenue Cloud Consultant,
-        AI Associate, and AI Specialist</strong> — and I bring an engineer's curiosity and a quote-to-cash
-        practitioner's pragmatism to every problem.
+        I'm certified as a Salesforce <strong>CPQ Administrator, Platform Developer I, Revenue Cloud Consultant,
+        Agentforce Specialist, and AI Associate</strong> — an Agentblazer Innovator with 9 Trailhead Superbadges
+        across Billing, Flow, Access, and Agentforce.
       </p>
 
       <div class="stats">
@@ -900,7 +994,7 @@
         </div>
         <div>
           <div class="stat-num">5</div>
-          <div class="stat-label">Salesforce certifications &amp; 4 superbadges</div>
+          <div class="stat-label">Salesforce certifications &amp; 9 superbadges</div>
         </div>
         <div>
           <div class="stat-num">3</div>
@@ -1097,72 +1191,115 @@
       <h3 class="certs-subtitle">Salesforce Certifications</h3>
       <div class="certs-grid">
         <div class="cert">
-          <div class="cert-icon">CPQ</div>
+          <div class="cert-badge"><img src="badges/cpq-administrator.png" alt="Salesforce Certified CPQ Administrator" loading="lazy" /></div>
           <div>
-            <div class="cert-name">CPQ Specialist</div>
+            <div class="cert-name">CPQ Administrator</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">PD1</div>
+          <div class="cert-badge"><img src="badges/platform-developer-1.png" alt="Salesforce Certified Platform Developer I" loading="lazy" /></div>
           <div>
             <div class="cert-name">Platform Developer I</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">RC</div>
+          <div class="cert-badge"><img src="badges/revenue-cloud-consultant.png" alt="Salesforce Certified Revenue Cloud Consultant" loading="lazy" /></div>
           <div>
             <div class="cert-name">Revenue Cloud Consultant</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">AI</div>
+          <div class="cert-badge"><img src="badges/agentforce-specialist.png" alt="Salesforce Certified Agentforce Specialist" loading="lazy" /></div>
           <div>
-            <div class="cert-name">AI Specialist</div>
+            <div class="cert-name">Agentforce Specialist</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">AI</div>
+          <div class="cert-badge"><img src="badges/ai-associate.png" alt="Salesforce Certified AI Associate" loading="lazy" /></div>
           <div>
             <div class="cert-name">AI Associate</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
       </div>
+
+      <div class="agentblazer-card">
+        <div class="agentblazer-icon">⚡</div>
+        <div class="agentblazer-content">
+          <h4>Agentblazer Innovator 2025</h4>
+          <p>Recognized status on the Salesforce Trailblazer platform for early Agentforce adoption and innovation.</p>
+        </div>
+      </div>
     </div>
 
     <div class="certs-section">
-      <h3 class="certs-subtitle">Trailhead Superbadges</h3>
-      <div class="certs-grid">
+      <h3 class="certs-subtitle">Trailhead Superbadges <span style="color: var(--ink-muted); font-style: normal; font-size: 0.85rem; font-family: var(--mono); letter-spacing: 0.05em;">— 9 earned</span></h3>
+      <div class="certs-grid cert-grid-superbadges">
         <div class="cert">
-          <div class="cert-icon">B</div>
+          <div class="cert-badge"><img src="badges/superbadge-agentforce-service.webp" alt="Agentforce Service Superbadge" loading="lazy" /></div>
           <div>
-            <div class="cert-name">Billing</div>
-            <div class="cert-issuer">Salesforce Trailhead</div>
+            <div class="cert-name">Agentforce Service</div>
+            <div class="cert-issuer">Apr 2025</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">B+</div>
+          <div class="cert-badge"><img src="badges/superbadge-prompt-builder.webp" alt="Prompt Builder Templates Superbadge" loading="lazy" /></div>
           <div>
-            <div class="cert-name">Advanced Billing</div>
-            <div class="cert-issuer">Salesforce Trailhead</div>
+            <div class="cert-name">Prompt Builder Templates</div>
+            <div class="cert-issuer">Apr 2025</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">BA</div>
+          <div class="cert-badge"><img src="badges/superbadge-user-access-troubleshooting.webp" alt="User Access Troubleshooting Superbadge" loading="lazy" /></div>
           <div>
-            <div class="cert-name">Business Admin Specialist</div>
-            <div class="cert-issuer">Salesforce Trailhead</div>
+            <div class="cert-name">User Access Troubleshooting</div>
+            <div class="cert-issuer">Aug 2024</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">FA</div>
+          <div class="cert-badge"><img src="badges/superbadge-billing-super-set.webp" alt="Billing Specialist Super Set" loading="lazy" /></div>
           <div>
-            <div class="cert-name">Flow Admin Specialist</div>
-            <div class="cert-issuer">Salesforce Trailhead</div>
+            <div class="cert-name">Billing Specialist Super Set</div>
+            <div class="cert-issuer">Aug 2024</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge"><img src="badges/superbadge-advanced-billing.webp" alt="Advanced Billing Specialist Superbadge" loading="lazy" /></div>
+          <div>
+            <div class="cert-name">Advanced Billing Specialist</div>
+            <div class="cert-issuer">Aug 2024</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge"><img src="badges/superbadge-flow-administration.webp" alt="Flow Administration Superbadge" loading="lazy" /></div>
+          <div>
+            <div class="cert-name">Flow Administration</div>
+            <div class="cert-issuer">Jul 2024</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge"><img src="badges/superbadge-access-governance.webp" alt="Access Governance Superbadge" loading="lazy" /></div>
+          <div>
+            <div class="cert-name">Access Governance</div>
+            <div class="cert-issuer">Jul 2024</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge"><img src="badges/superbadge-business-administration.webp" alt="Business Administration Specialist Superbadge" loading="lazy" /></div>
+          <div>
+            <div class="cert-name">Business Administration Specialist</div>
+            <div class="cert-issuer">Jul 2024</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge"><img src="badges/superbadge-billing-specialist.webp" alt="Billing Specialist Superbadge" loading="lazy" /></div>
+          <div>
+            <div class="cert-name">Billing Specialist</div>
+            <div class="cert-issuer">Jun 2024</div>
           </div>
         </div>
       </div>
@@ -1172,28 +1309,28 @@
       <h3 class="certs-subtitle">Additional Certifications</h3>
       <div class="certs-grid">
         <div class="cert">
-          <div class="cert-icon">PB</div>
+          <div class="cert-badge logo-frame"><img src="badges/powerbi.png" alt="Power BI" loading="lazy" /></div>
           <div>
             <div class="cert-name">Power BI</div>
             <div class="cert-issuer">Microsoft</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">T</div>
+          <div class="cert-badge logo-frame"><img src="badges/tableau.png" alt="Tableau" loading="lazy" /></div>
           <div>
             <div class="cert-name">Tableau</div>
             <div class="cert-issuer">Tableau</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">Py</div>
+          <div class="cert-badge logo-frame"><img src="badges/python.png" alt="Python" loading="lazy" /></div>
           <div>
             <div class="cert-name">Python &amp; Data Structures</div>
             <div class="cert-issuer">Certified</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-icon">SQL</div>
+          <div class="cert-badge logo-frame"><img src="badges/mysql.png" alt="MySQL" loading="lazy" /></div>
           <div>
             <div class="cert-name">MySQL</div>
             <div class="cert-issuer">Certified</div>
@@ -1341,7 +1478,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       Email
     </a>
-    <a href="https://www.linkedin.com/in/darwin-balaji-k" target="_blank" rel="noopener" class="contact-link">
+    <a href="https://www.linkedin.com/in/darwin-balaji-k-953431218" target="_blank" rel="noopener" class="contact-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
@@ -1349,7 +1486,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub
     </a>
-    <a href="https://www.salesforce.com/trailblazer/darwinbalaji" target="_blank" rel="noopener" class="contact-link">
+    <a href="https://www.salesforce.com/trailblazer/x63epf4rfy0yocm6yq" target="_blank" rel="noopener" class="contact-link">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       Trailblazer
     </a>
