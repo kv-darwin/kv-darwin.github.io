@@ -714,9 +714,10 @@
 
   .edu-pub-wrap { border-top: 1px solid var(--line); }
   .edu-pub-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 4rem;
+    max-width: 900px;
   }
 
   .edu-block h3, .pub-block h3 {
