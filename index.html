@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Darwin Balaji K — Salesforce Developer | CPQ · Billing · Revenue Cloud</title>
-<meta name="description" content="Salesforce Developer with 2+ years building scalable Quote-to-Cash solutions. Certified CPQ Administrator, Platform Developer I, Revenue Cloud Consultant, Agentforce Specialist." />
-<meta name="keywords" content="Salesforce Developer, CPQ Administrator, Revenue Cloud Consultant, Agentforce Specialist, Apex, QCP, Salesforce Billing, LWC, Coimbatore" />
+<meta name="description" content="Salesforce Developer with 2.5+ years building scalable Quote-to-Cash solutions. Certified CPQ Administrator, Platform Developer, Revenue Management Consultant, Agentforce Specialist, and Copado certified." />
+<meta name="keywords" content="Salesforce Developer, CPQ Administrator, Revenue Cloud Consultant, Revenue Management Consultant, Agentforce Specialist, Apex, QCP, CPQ API, Postman, Copado, Salesforce Billing, LWC, Coimbatore" />
 <meta name="author" content="Darwin Balaji K" />
 
 <meta property="og:title" content="Darwin Balaji K — Salesforce Developer" />
-<meta property="og:description" content="CPQ · Billing · Revenue Cloud · Apex. 2+ years delivering Quote-to-Cash solutions across enterprise environments." />
+<meta property="og:description" content="CPQ · Billing · Revenue Cloud · Apex. 2.5+ years delivering Quote-to-Cash solutions across enterprise environments." />
 <meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,10 +159,17 @@
     margin-bottom: 2rem;
     max-width: 1200px;
   }
-  .hero h1 .line { display: block; overflow: hidden; }
+  .hero h1 .line {
+    display: block;
+    overflow: hidden;
+    /* room for descenders (g, p, Q) so the reveal mask doesn't clip them */
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
+  }
+  .hero h1 .line:last-child { margin-bottom: 0; }
   .hero h1 .line span {
     display: inline-block;
-    transform: translateY(110%);
+    transform: translateY(130%);
     animation: slideUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
   }
   .hero h1 .line:nth-child(1) span { animation-delay: 0.2s; }
@@ -503,6 +510,14 @@
     left: 0;
     color: var(--accent);
   }
+  .job-project {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 1.4rem 0 0.3rem;
+  }
 
   .certs-wrap { border-top: 1px solid var(--line); }
 
@@ -565,6 +580,22 @@
   }
   .cert-badge.logo-frame.dark {
     background: #1a1a1a;
+  }
+  /* Icon badges for certifications without an image (Copado) */
+  .cert-badge.icon-frame {
+    border-radius: 50%;
+    padding: 14px;
+    background: rgba(212, 165, 116, 0.1);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    color: var(--accent);
+  }
+  .cert-badge.icon-frame svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  .cert:hover .cert-badge.icon-frame svg {
+    transform: scale(1.08);
   }
   .cert-name {
     font-size: 0.92rem;
@@ -914,9 +945,10 @@
     <span class="line"><span>Salesforce platform.</span></span>
   </h1>
   <p class="hero-tagline">
-    Salesforce Developer with 2+ years of hands-on experience in CPQ, Billing, and core platform development.
-    Certified CPQ Administrator, Platform Developer I, Revenue Cloud Consultant, and Agentforce Specialist — delivering scalable solutions
-    across Life Sciences, Non-Profit, and Telecom enterprises.
+    Salesforce CPQ Developer specializing in end-to-end Quote-to-Cash solutions across CPQ, Billing, and core
+    platform development. Certified CPQ Administrator, Platform Developer, Revenue Management Consultant, and
+    Agentforce Specialist, delivering scalable solutions for enterprise clients in Life Sciences, Non-Profit,
+    and Telecom.
   </p>
   <div class="hero-actions">
     <a href="#contact" class="btn btn-primary">
@@ -953,24 +985,29 @@
         environments.
       </p>
       <p>
-        My current engagement is on a Life Sciences SaaS platform, where I build advanced approval chains,
+        My current engagement focuses on <strong>CPQ pricing, packaging, and API integrations</strong> — building
+        Price Rules and QCP logic, validating CPQ API payloads in Postman, enhancing Apex and triggers, and
+        releasing through Copado.
+      </p>
+      <p>
+        Before that, on a Life Sciences SaaS platform, I built advanced approval chains,
         Apex-driven subscription billing, and dynamic Conga templates for amendment and renewal quotes —
         deployed across DEV, QA, UAT, and PROD via <strong>Gearset and Copado CI/CD</strong>.
       </p>
       <p>
-        I'm certified as a Salesforce <strong>CPQ Administrator, Platform Developer I, Revenue Cloud Consultant,
-        Agentforce Specialist, and AI Associate</strong> — an Agentblazer Innovator with 9 Trailhead Superbadges
-        across Billing, Flow, Access, and Agentforce.
+        I'm certified as a Salesforce <strong>CPQ Administrator, Platform Developer, Revenue Management Consultant,
+        Agentforce Specialist, and AI Associate</strong>, and hold four <strong>Copado certifications</strong> — an
+        Agentblazer Innovator with 9 Trailhead Superbadges across Billing, Flow, Access, and Agentforce.
       </p>
 
       <div class="stats">
         <div>
-          <div class="stat-num">2<em>+</em></div>
+          <div class="stat-num">2.5<em>+</em></div>
           <div class="stat-label">Years building Quote-to-Cash on Salesforce</div>
         </div>
         <div>
-          <div class="stat-num">5</div>
-          <div class="stat-label">Salesforce certifications &amp; 9 superbadges</div>
+          <div class="stat-num">9</div>
+          <div class="stat-label">Certifications (5 Salesforce, 4 Copado) &amp; 9 superbadges</div>
         </div>
         <div>
           <div class="stat-num">3</div>
@@ -992,7 +1029,8 @@
       <h3>Salesforce <em>CPQ</em></h3>
       <p>
         Products &amp; Bundles, Feature/Option Constraints, MDQ, Discount Schedules, Product &amp; Price Rules,
-        Quote Templates, Subscriptions, Contracts, Custom Actions, Guided Selling, Advanced Approvals, and QCP.
+        Quote Templates, Subscriptions, Contracts, Custom Actions, Guided Selling, Advanced Approvals, QCP,
+        CPQ API, Quote-to-Cash (QTC), CLM, and DocuSign.
       </p>
       <div class="expertise-tags">
         <span class="tag">QCP</span>
@@ -1000,6 +1038,10 @@
         <span class="tag">Product Rules</span>
         <span class="tag">Quote Templates</span>
         <span class="tag">Advanced Approvals</span>
+        <span class="tag">CPQ API</span>
+        <span class="tag">QTC</span>
+        <span class="tag">CLM</span>
+        <span class="tag">DocuSign</span>
       </div>
     </div>
 
@@ -1024,7 +1066,7 @@
       <h3>Apex <em>&amp; Development</em></h3>
       <p>
         Triggers, Test Classes, Batch Apex, Governor Limits, Exception Handling, DML, SOQL/SOSL,
-        Lightning Web Components, Visualforce, REST/SOAP APIs, and Trigger Action Framework.
+        Lightning Web Components, Visualforce, REST/SOAP APIs, Postman, and Trigger Action Framework.
       </p>
       <div class="expertise-tags">
         <span class="tag">Apex</span>
@@ -1032,6 +1074,7 @@
         <span class="tag">Visualforce</span>
         <span class="tag">REST/SOAP</span>
         <span class="tag">SOQL</span>
+        <span class="tag">Postman</span>
       </div>
     </div>
 
@@ -1040,7 +1083,7 @@
       <h3>Platform <em>&amp; DevOps</em></h3>
       <p>
         Configuration &amp; Customization, Data Modelling, Security &amp; Sharing, Flows, Process Builder, Reports
-        &amp; Dashboards, Sales &amp; Service Cloud, and CI/CD via Gearset, Copado, JetStream, and Changesets.
+        &amp; Dashboards, Sales &amp; Service Cloud, and CI/CD via Gearset, Copado, JetStream, and Change Sets.
       </p>
       <div class="expertise-tags">
         <span class="tag">Flows</span>
@@ -1048,6 +1091,7 @@
         <span class="tag">Copado</span>
         <span class="tag">FlexiPages</span>
         <span class="tag">CI/CD</span>
+        <span class="tag">Change Sets</span>
       </div>
     </div>
 
@@ -1062,11 +1106,41 @@
 
     <div class="job reveal">
       <div class="job-period">
-        Jul 2025 — Present
+        Jun 2026 — Present
         <br><span class="role-tag">Current</span>
       </div>
       <div class="job-content">
-        <h3>Salesforce Developer — Freelance</h3>
+        <h3>Salesforce CPQ Developer — Contractor</h3>
+        <div class="job-company">DeepDive IT Solutions LLC · ConnectWise</div>
+        <p>Salesforce CPQ pricing, packaging, and API initiatives for ConnectWise.</p>
+        <div class="job-project">Pricing and Packaging 2026</div>
+        <ul class="job-bullets">
+          <li>Built Salesforce CPQ Price Rules and Quote Calculator Plugin (QCP) logic to implement complex pricing calculations, discount validations, and automated pricing behaviour</li>
+          <li>Developed Salesforce CPQ Quote Templates with custom Apex controllers to dynamically control pricing visibility and display quote content based on business requirements</li>
+          <li>Managed deployments across sandboxes using Copado, ensuring reliable version control, automated CI/CD pipelines, and successful release management</li>
+        </ul>
+        <div class="job-project">OPS Business Systems — CPQ API</div>
+        <ul class="job-bullets">
+          <li>Configured Salesforce CPQ API integrations to support automated quote and pricing operations</li>
+          <li>Built and tested CPQ API requests in Postman, preparing JSON payloads and validating each build against expected quote and pricing outcomes</li>
+          <li>Enhanced Apex classes and triggers to support the new CPQ API processing logic in line with business requirements</li>
+          <li>Managed deployments to higher orgs through Copado, ensuring controlled and reliable releases</li>
+        </ul>
+        <div class="job-tech">
+          <span class="tag">CPQ</span>
+          <span class="tag">QCP</span>
+          <span class="tag">CPQ API</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Apex</span>
+          <span class="tag">Copado</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-period">Jul 2025 — Jun 2026</div>
+      <div class="job-content">
+        <h3>Salesforce Developer — Contractor</h3>
         <div class="job-company">DeepDive IT Solutions LLC · Life Sciences SaaS Platform</div>
         <p>CPQ &amp; Pricing Optimization for a global Life Sciences enterprise.</p>
         <ul class="job-bullets">
@@ -1174,16 +1248,16 @@
           </div>
         </div>
         <div class="cert">
-          <div class="cert-badge"><img src="badges/platform-developer-1.png" alt="Salesforce Certified Platform Developer I" loading="lazy" /></div>
+          <div class="cert-badge"><img src="badges/platform-developer-1.png" alt="Salesforce Certified Platform Developer" loading="lazy" /></div>
           <div>
-            <div class="cert-name">Platform Developer I</div>
+            <div class="cert-name">Platform Developer</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-badge"><img src="badges/revenue-cloud-consultant.png" alt="Salesforce Certified Revenue Cloud Consultant" loading="lazy" /></div>
+          <div class="cert-badge"><img src="badges/revenue-cloud-consultant.png" alt="Salesforce Certified Revenue Management Consultant" loading="lazy" /></div>
           <div>
-            <div class="cert-name">Revenue Cloud Consultant</div>
+            <div class="cert-name">Revenue Management Consultant</div>
             <div class="cert-issuer">Salesforce</div>
           </div>
         </div>
@@ -1208,6 +1282,40 @@
         <div class="agentblazer-content">
           <h4>Agentblazer Innovator 2025</h4>
           <p>Recognized status on the Salesforce Trailblazer platform for early Agentforce adoption and innovation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="certs-section">
+      <h3 class="certs-subtitle">Copado Certifications</h3>
+      <div class="certs-grid">
+        <div class="cert">
+          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div>
+            <div class="cert-name">Copado AI</div>
+            <div class="cert-issuer">Copado</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div>
+            <div class="cert-name">Copado Data 360</div>
+            <div class="cert-issuer">Copado</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div>
+            <div class="cert-name">Agentia Advanced</div>
+            <div class="cert-issuer">Copado</div>
+          </div>
+        </div>
+        <div class="cert">
+          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div>
+            <div class="cert-name">Copado Robotic Testing</div>
+            <div class="cert-issuer">Copado</div>
+          </div>
         </div>
       </div>
     </div>
