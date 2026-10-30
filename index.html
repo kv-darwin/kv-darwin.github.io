@@ -185,7 +185,7 @@
   .hero-tagline {
     font-size: 1.15rem;
     color: var(--ink-soft);
-    max-width: 620px;
+    max-width: none;
     margin-bottom: 3rem;
     line-height: 1.6;
     opacity: 0;
@@ -580,22 +580,6 @@
   }
   .cert-badge.logo-frame.dark {
     background: #1a1a1a;
-  }
-  /* Icon badges for certifications without an image (Copado) */
-  .cert-badge.icon-frame {
-    border-radius: 50%;
-    padding: 14px;
-    background: rgba(212, 165, 116, 0.1);
-    border: 1px solid rgba(212, 165, 116, 0.3);
-    color: var(--accent);
-  }
-  .cert-badge.icon-frame svg {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-  }
-  .cert:hover .cert-badge.icon-frame svg {
-    transform: scale(1.08);
   }
   .cert-name {
     font-size: 0.92rem;
@@ -1290,28 +1274,28 @@
       <h3 class="certs-subtitle">Copado Certifications</h3>
       <div class="certs-grid">
         <div class="cert">
-          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div class="cert-badge"><img src="badges/copado-ai.png" alt="Copado Certified AI" loading="lazy" /></div>
           <div>
             <div class="cert-name">Copado AI</div>
             <div class="cert-issuer">Copado</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div class="cert-badge"><img src="badges/copado-data-360.png" alt="Copado Certified Data 360" loading="lazy" /></div>
           <div>
             <div class="cert-name">Copado Data 360</div>
             <div class="cert-issuer">Copado</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div class="cert-badge"><img src="badges/copado-agentia-advanced.png" alt="Copado Certified Agentia Advanced" loading="lazy" /></div>
           <div>
             <div class="cert-name">Agentia Advanced</div>
             <div class="cert-issuer">Copado</div>
           </div>
         </div>
         <div class="cert">
-          <div class="cert-badge icon-frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 22l5-3 5 3-1.5-8.1"/></svg></div>
+          <div class="cert-badge"><img src="badges/copado-robotic-testing.png" alt="Copado Certified Robotic Testing" loading="lazy" /></div>
           <div>
             <div class="cert-name">Copado Robotic Testing</div>
             <div class="cert-issuer">Copado</div>
